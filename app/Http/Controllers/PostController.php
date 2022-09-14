@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\PostStoreAction;
-use App\Facades\Respond;
-use App\Http\JsonResponses\PostResponse;
-use Illuminate\Http\Request;
+use App\Actions\PostStore;
+use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
 
 class PostController extends Controller
@@ -15,10 +13,17 @@ class PostController extends Controller
         return view('welcome');
     }
 
-    public function store(PostStoreRequest $request, PostStoreAction $postStoreAction)
+    public function store(PostStoreRequest $request, PostStore $postStoreAction)
     {
         $postStoreAction->store($request->validated());
 
-        return Respond::store($postStoreAction->getPost());
+//        return PostStoreRespond::show($postStoreAction->getPost());
+        return PostResponse::store($postStoreAction->getPost());
+    }
+
+    public function show()
+    {
+//        PostShowRespond::show();
+        PostResponse::show();
     }
 }

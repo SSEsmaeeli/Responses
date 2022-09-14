@@ -7,9 +7,9 @@ use App\Repos\PostRepo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class PostStoreAction
+class PostStore
 {
-    private Model $post;
+    private Post $post;
 
     public function __construct(private readonly PostRepo $postRepo)
     {
@@ -19,12 +19,8 @@ class PostStoreAction
     public function store($data)
     {
         $slug = $this->addSlugToPost($data['title']);
-
         $data['body'] = $slug;
-        ///
-        ///
-        ///
-        ///
+
         $this->post = $this->postRepo->store($data);
         return $this;
     }

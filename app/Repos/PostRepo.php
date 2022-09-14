@@ -3,6 +3,7 @@
 namespace App\Repos;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Model;
 
 class PostRepo
 {
@@ -11,7 +12,7 @@ class PostRepo
 
     }
 
-    public function store($data)
+    public function store($data): Post|Model
     {
         return $this->post->query()->create($data);
     }
