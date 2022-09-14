@@ -7,7 +7,9 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class ApiResponse
 {
     const KEY_SUCCESS = 'success';
+
     const KEY_DATA = 'data';
+
     const KEY_MESSAGE = 'message';
 
     public function success($data, $status = 200): void
@@ -44,7 +46,7 @@ class ApiResponse
     {
         $this->respondAsApi([
             self::KEY_SUCCESS => true,
-            self::KEY_DATA => $data
+            self::KEY_DATA => $data,
         ], $status);
     }
 
@@ -52,7 +54,7 @@ class ApiResponse
     {
         $this->respondAsApi([
             self::KEY_SUCCESS => false,
-            self::KEY_MESSAGE => $message
+            self::KEY_MESSAGE => $message,
         ], $status);
     }
 
