@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Actions\PostStore;
 use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
+use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
-    public function create()
+    public function create(): View
     {
         return view('welcome');
     }
@@ -17,13 +18,6 @@ class PostController extends Controller
     {
         $postStoreAction->store($request->validated());
 
-//        return PostStoreRespond::show($postStoreAction->getPost());
         return PostResponse::store($postStoreAction->getPost());
-    }
-
-    public function show()
-    {
-//        PostShowRespond::show();
-        PostResponse::show();
     }
 }
