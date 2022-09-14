@@ -9,7 +9,6 @@ class PostRepo
 {
     public function __construct(private readonly Post $post)
     {
-
     }
 
     public function store($data): Post|Model

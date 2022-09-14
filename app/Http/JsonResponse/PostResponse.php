@@ -2,8 +2,8 @@
 
 namespace App\Http\JsonResponse;
 
-use App\Models\Post;
 use App\Http\Resources\Post as PostResource;
+use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 
 class PostResponse
@@ -12,7 +12,7 @@ class PostResponse
     {
         return response()->json([
             'success' => true,
-            'data' => new PostResource($post)
+            'data' => new PostResource($post),
         ]);
     }
 }

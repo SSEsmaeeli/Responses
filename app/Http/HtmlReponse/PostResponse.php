@@ -8,13 +8,13 @@ use Illuminate\Contracts\View\View;
 class PostResponse
 {
     /**
-     * @param Post $post
+     * @param  Post  $post
      * @return View
      */
     public function store(Post $post): View
     {
         return view('welcome', [
-            'post' => $post
+            'post' => $post,
         ]);
     }
 }

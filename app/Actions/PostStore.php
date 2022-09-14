@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Models\Post;
 use App\Repos\PostRepo;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class PostStore
@@ -13,7 +12,6 @@ class PostStore
 
     public function __construct(private readonly PostRepo $postRepo)
     {
-
     }
 
     public function store($data)
@@ -22,6 +20,7 @@ class PostStore
         $data['body'] = $slug;
 
         $this->post = $this->postRepo->store($data);
+
         return $this;
     }
 

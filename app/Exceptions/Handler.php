@@ -55,10 +55,9 @@ class Handler extends ExceptionHandler
             return response()->json([
                 'success' => false,
                 'message' => $e->validator->errors()->first(),
-                'errors' => $e->validator->getMessageBag()
+                'errors' => $e->validator->getMessageBag(),
             ], 422);
         }
-
 
         return parent::render($request, $e);
     }
