@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Models\Post;
 use App\Repos\PostRepo;
-use Illuminate\Support\Str;
 
 class PostStore
 {
@@ -14,23 +13,17 @@ class PostStore
     {
     }
 
-    public function store($data)
+    public function store($data): static
     {
-        $slug = $this->addSlugToPost($data['title']);
-        $data['body'] = $slug;
-
-        $this->post = $this->postRepo->store($data);
+        $this->post = $this->postRepo->store($data + [
+            'user_id' => auth()->user()->id
+        ]);
 
         return $this;
     }
 
-    public function getPost()
+    public function getPost(): Post
     {
         return $this->post;
-    }
-
-    private function addSlugToPost($title)
-    {
-        return (string) Str::of($title)->slug();
     }
 }
