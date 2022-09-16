@@ -11,7 +11,7 @@ class LoginResponse
     {
         Respond::success([
             'message' => 'You are successfully logged in!',
-            'user' => auth()->user()
+            'token' => auth()->user()->createToken('api-token')->plainTextToken
         ]);
     }
 
