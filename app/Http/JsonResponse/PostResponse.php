@@ -12,7 +12,9 @@ class PostResponse
 {
     public function index(Collection $posts): JsonResponse
     {
-        Respond::success($posts);
+        Respond::success(
+            PostResource::collection($posts)
+        );
     }
 
     public function store(Post $post): JsonResponse
@@ -26,6 +28,13 @@ class PostResponse
     {
         Respond::success(
             new PostResource($post)
+        );
+    }
+
+    public function destroy(): JsonResponse
+    {
+        Respond::success(
+            'The requested post deleted successfully.'
         );
     }
 }

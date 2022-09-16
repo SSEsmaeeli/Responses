@@ -23,8 +23,18 @@ class PostResponse
         return redirect()->route('posts.index');
     }
 
+    public function show(Post $post): View
+    {
+        return view('post.show', compact('post'));
+    }
+
     public function update(Post $post): RedirectResponse
     {
         return redirect()->route('posts.edit', $post->uuid);
+    }
+
+    public function destroy(): RedirectResponse
+    {
+        return redirect()->route('posts.index');
     }
 }

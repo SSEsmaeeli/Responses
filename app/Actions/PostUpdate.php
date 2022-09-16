@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostUpdate
 {
-    private string $postId;
+    private string $postUuid;
 
     private array $data;
 
@@ -17,12 +17,12 @@ class PostUpdate
 
     public function handle()
     {
-        $this->postRepo->update($this->postId, $this->data);
+        $this->postRepo->update($this->postUuid, $this->data);
     }
 
-    public function setPostId(string $postId): static
+    public function setPostUuid(string $postUuid): static
     {
-        $this->postId = $postId;
+        $this->postUuid = $postUuid;
         return $this;
     }
 
@@ -34,6 +34,6 @@ class PostUpdate
 
     public function getPost(): Model
     {
-        return $this->postRepo->findByUUID($this->postId);
+        return $this->postRepo->findByUuid($this->postUuid);
     }
 }

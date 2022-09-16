@@ -22,7 +22,7 @@ class PostRepo
         return $this->post->query()->owner($userId)->get();
     }
 
-    public function findByUUID($uuid): Model|null
+    public function findByUuid($uuid): Model|null
     {
         return $this->post->query()->where('uuid', $uuid)->first();
     }
@@ -30,5 +30,10 @@ class PostRepo
     public function update($postId, $data): int
     {
         return $this->post->query()->where('uuid', $postId)->update($data);
+    }
+
+    public function deleteByUuid($postUuid): int
+    {
+        return $this->post->query()->where('uuid', $postUuid)->delete();
     }
 }

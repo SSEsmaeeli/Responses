@@ -27,5 +27,5 @@ Route::middleware('auth')->group(function () {
     Route::get('home', [PageController::class, 'showHomePage'])->name('home');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::resource('posts', PostController::class);
+    Route::resource('posts', PostController::class)->except('delete');
 });

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static store(Post $post)
  * @method static index(\Illuminate\Database\Eloquent\Collection $posts)
  * @method static update($getPost)
+ * @method static show(\Illuminate\Database\Eloquent\Model|null $post)
+ * @method static destroy()
  */
 class PostResponse extends Facade
 {

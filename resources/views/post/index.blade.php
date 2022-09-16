@@ -12,7 +12,7 @@
             @foreach($posts as $post)
                 <div class="card mb-2">
                     <div class="card-header">
-                        <label>{{ $post->title }}</label>
+                        <label><a href="{{ route('posts.show', $post->uuid) }}">{{ $post->title }}</a></label>
                         <label class="badge bg-primary">{{ $post->created_at->ago() }}</label>
                         <a href="{{ route('posts.edit', $post->uuid) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                     </div>
