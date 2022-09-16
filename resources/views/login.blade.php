@@ -4,7 +4,12 @@
 
     <h1 class="text-center my-4">Login Page</h1>
 
+    <div class="col-md-12">
+        <x-error-messages/>
+    </div>
+
     <div class="d-flex justify-content-center">
+
         <form action="{{ route('login.submit') }}" method="post">
             @csrf
             <div class="form-group">
@@ -14,7 +19,7 @@
 
             <div class="form-group">
                 <label>Passowrd:</label>
-                <input type="text" name="email" class="form-control">
+                <input type="password" name="password" class="form-control">
             </div>
 
             <div class="form-group mt-2">

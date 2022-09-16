@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\HtmlReponse;
+namespace App\Http\HtmlResponse;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
