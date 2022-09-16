@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static store(Post $post)
+ * @method static index(\Illuminate\Database\Eloquent\Collection $posts)
  */
 class PostResponse extends Facade
 {

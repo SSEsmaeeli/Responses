@@ -12,9 +12,9 @@ class PostController extends Controller
 {
     public function index(PostRepo $postRepo): View
     {
-        return view('post.index', [
-            'posts' => $postRepo->getUserPosts(auth()->user()->id)
-        ]);
+        $posts = $postRepo->getUserPosts(auth()->user()->id);
+
+        PostResponse::index($posts);
     }
 
     public function create(): View
