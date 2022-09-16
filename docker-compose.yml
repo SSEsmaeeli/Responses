@@ -1,7 +1,7 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
-    blog.test:
+    laravel.test:
         container_name: blog_app
         build:
             context: ./vendor/laravel/sail/runtimes/8.1

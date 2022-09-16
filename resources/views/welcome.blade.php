@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.master')
 
-        <title>Laravel</title>
-    </head>
-    <body>
-        <h1>test</h1>
-        {{ $errors }}
-        <form action="{{ url('/store') }}" method="post">
-            @csrf
-            title: <input type="text" name="title" class="form-control">
-            body <input type="text" name="body">
-            <button type="submit">Send</button>
-        </form>
+@section('content')
 
-        @isset($post)
-            {{ $post->id }}<br>
-            {{ $post->title }}<br>
-            {{ $post->created_at }}<br>
-        @endif
-    </body>
-</html>
+    <h1 class="text-center mt-4">Welcome to our blog post</h1>
+
+    <div class="text-center">
+        <a href="{{ route('login') }}" class="btn btn-outline-success">Login</a>
+        <a href="" class="btn btn-outline-primary">Register</a>
+        <a href="" class="btn btn-outline-success">Post List</a>
+    </div>
+@stop

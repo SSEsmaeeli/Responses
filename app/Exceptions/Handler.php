@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Facades\Respond;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -52,11 +55,15 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         if ($e instanceof ValidationException && $request->wantsJson()) {
-            return response()->json([
-                'success' => false,
-                'message' => $e->validator->errors()->first(),
-                'errors' => $e->validator->getMessageBag(),
-            ], 422);
+            Respond::failedValidation($e->validator->errors()->first());
+        }
+
+        if ($e instanceof AuthorizationException && $request->wantsJson()) {
+            Respond::failedAuthorization('Sorry, You are not allowed to access the requested resource.');
+        }
+
+        if ($e instanceof AuthenticationException && $request->wantsJson()) {
+            Respond::failedAuthentication('Sorry, You are not allowed to access the requested resource.');
         }
 
         return parent::render($request, $e);

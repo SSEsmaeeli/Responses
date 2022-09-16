@@ -2,7 +2,7 @@
 
 namespace App\Facades;
 
-use App\Http\HtmlReponse\PostResponse as HtmlPostResponse;
+use App\Http\HtmlResponse\PostResponse as HtmlPostResponse;
 use App\Http\JsonResponse\PostResponse as JsonPostResponse;
 use App\Models\Post;
 use Illuminate\Support\Facades\Facade;
