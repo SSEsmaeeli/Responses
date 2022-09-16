@@ -15,9 +15,13 @@ class Post extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
+            'id' => $this->uuid,
             'title' => $this->title,
+            'slug' => $this->slug,
             'body' => $this->body,
+            $this->mergeWhen($this->isOwner(auth()->user()->id), [
+                'created_at' => $this->created_at
+            ])
         ];
     }
 }

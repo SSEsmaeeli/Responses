@@ -14,6 +14,7 @@
                     <div class="card-header">
                         <label>{{ $post->title }}</label>
                         <label class="badge bg-primary">{{ $post->created_at->ago() }}</label>
+                        <a href="{{ route('posts.edit', $post->uuid) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                     </div>
                     <div class="card-body">
                         {{ $post->body }}

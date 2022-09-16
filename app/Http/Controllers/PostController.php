@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Actions\PostStore;
+use App\Actions\PostUpdate;
 use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Repos\PostRepo;
 use Illuminate\Contracts\View\View;
 
@@ -27,5 +29,20 @@ class PostController extends Controller
         $postStoreAction->store($request->validated());
 
         return PostResponse::store($postStoreAction->getPost());
+    }
+
+    public function edit($postUuid, PostRepo $postRepo): View
+    {
+        $post = $postRepo->findByUUID($postUuid);
+        return view('post.edit', compact('post'));
+    }
+
+    public function update(PostUpdateRequest $request, $postId, PostUpdate $postUpdate)
+    {
+        $postUpdate->setPostId($postId)
+            ->setData($request->validated())
+            ->handle();
+
+        return PostResponse::update($postUpdate->getPost());
     }
 }

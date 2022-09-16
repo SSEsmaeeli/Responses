@@ -21,4 +21,14 @@ class PostRepo
     {
         return $this->post->query()->owner($userId)->get();
     }
+
+    public function findByUUID($uuid): Model|null
+    {
+        return $this->post->query()->where('uuid', $uuid)->first();
+    }
+
+    public function update($postId, $data): int
+    {
+        return $this->post->query()->where('uuid', $postId)->update($data);
+    }
 }

@@ -14,12 +14,12 @@
             @csrf
             <div class="form-group">
                 <label>Title:</label>
-                <input type="text" name="title" class="form-control">
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}">
             </div>
 
             <div class="form-group">
                 <label>Body:</label>
-                <textarea name="body" class="form-control" rows="10"></textarea>
+                <textarea name="body" class="form-control" rows="10">{{ old('body') }}</textarea>
             </div>
 
             <div class="form-group mt-2">

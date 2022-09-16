@@ -22,4 +22,9 @@ class PostResponse
     {
         return redirect()->route('posts.index');
     }
+
+    public function update(Post $post): RedirectResponse
+    {
+        return redirect()->route('posts.edit', $post->uuid);
+    }
 }

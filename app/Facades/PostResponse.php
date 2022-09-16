@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
 /**
  * @method static store(Post $post)
  * @method static index(\Illuminate\Database\Eloquent\Collection $posts)
+ * @method static update($getPost)
  */
 class PostResponse extends Facade
 {

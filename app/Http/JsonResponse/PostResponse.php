@@ -21,4 +21,11 @@ class PostResponse
             new PostResource($post)
         );
     }
+
+    public function update(Post $post): JsonResponse
+    {
+        Respond::success(
+            new PostResource($post)
+        );
+    }
 }

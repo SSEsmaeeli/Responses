@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property mixed $user_id
+ * @property mixed $uuid
+ */
 class Post extends Model
 {
     use HasFactory, Sluggable, SoftDeletes, HasUUID;
@@ -34,5 +38,10 @@ class Post extends Model
     public function scopeOwner($query, $userId)
     {
         return $query->where('user_id', $userId);
+    }
+
+    public function isOwner($userId): bool
+    {
+        return $this->user_id === $userId;
     }
 }
