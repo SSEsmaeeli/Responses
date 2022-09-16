@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $posts = $postRepo->getUserPosts(auth()->user()->id);
 
-        PostResponse::index($posts);
+        return PostResponse::index($posts);
     }
 
     public function create(): View
