@@ -11,4 +11,9 @@ class PageController extends Controller
     {
         return view('welcome');
     }
+
+    public function showHomePage()
+    {
+        return view('home');
+    }
 }

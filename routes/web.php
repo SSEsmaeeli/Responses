@@ -24,9 +24,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('home', function () {
-        return 'you are logged in';
-    })->name('home');
+    Route::get('home', [PageController::class, 'showHomePage'])->name('home');
 });
 
 Route::post('/store', [PostController::class, 'store']);
