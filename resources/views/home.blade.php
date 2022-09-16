@@ -17,6 +17,17 @@
     </ul>
 
     <form method="post" action="{{ route('logout') }}">
+        <a href="{{ route('posts.index') }}" class="btn btn-outline-primary">
+            <span class="fa fa-newspaper"></span>
+            Your Posts
+        </a>
+
+        <a href="{{ route('posts.create') }}" class="btn btn-outline-success">
+            <span class="fa fa-plus"></span>
+            Create New Post
+        </a>
+
+
         @csrf
         <button type="submit" class="btn btn-outline-danger">Logout</button>
     </form>

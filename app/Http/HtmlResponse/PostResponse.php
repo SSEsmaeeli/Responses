@@ -3,18 +3,16 @@
 namespace App\Http\HtmlResponse;
 
 use App\Models\Post;
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class PostResponse
 {
     /**
-     * @param  Post  $post
-     * @return View
+     * @param Post $post
+     * @return RedirectResponse
      */
-    public function store(Post $post): View
+    public function store(Post $post): RedirectResponse
     {
-        return view('welcome', [
-            'post' => $post,
-        ]);
+        return redirect()->route('posts.index');
     }
 }
