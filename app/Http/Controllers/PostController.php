@@ -8,11 +8,18 @@ use App\Actions\PostUpdate;
 use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
+use App\Models\Post;
 use App\Repos\PostRepo;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
+
     public function index(PostRepo $postRepo): View
     {
         $posts = $postRepo->getUserPosts(auth()->user()->id);
@@ -32,31 +39,29 @@ class PostController extends Controller
         return PostResponse::store($postStoreAction->getPost());
     }
 
-    public function show($postUuid, PostRepo $postRepo)
+    public function show(Post $post)
     {
-        $post = $postRepo->findByUuid($postUuid);
         return PostResponse::show($post);
     }
 
-    public function edit($postUuid, PostRepo $postRepo): View
+    public function edit(Post $post): View
     {
-        $post = $postRepo->findByUuid($postUuid);
         return view('post.edit', compact('post'));
     }
 
-    public function update(PostUpdateRequest $request, $postUuid, PostUpdate $postUpdate)
+    public function update(PostUpdateRequest $request, Post $post, PostUpdate $postUpdate)
     {
-        $postUpdate->setPostUuid($postUuid)
+        $postUpdate->setPostUuid($post->uuid)
             ->setData($request->validated())
             ->handle();
 
         return PostResponse::update($postUpdate->getPost());
     }
 
-    public function destroy($postUuid, PostDestroy $postDestroy)
+    public function destroy(Post $post, PostDestroy $postDestroy)
     {
         $postDestroy
-            ->setPostUuid($postUuid)
+            ->setPostUuid($post->uuid)
             ->handle();
 
         return PostResponse::destroy();
