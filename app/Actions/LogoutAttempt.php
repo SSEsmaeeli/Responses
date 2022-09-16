@@ -8,6 +8,6 @@ class LogoutAttempt
 {
     public function handle()
     {
-        LogoutResponse::success();
+        return LogoutResponse::success();
     }
 }

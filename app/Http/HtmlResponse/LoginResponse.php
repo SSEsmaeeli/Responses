@@ -2,6 +2,7 @@
 
 namespace App\Http\HtmlResponse;
 
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -11,7 +12,7 @@ class LoginResponse
     {
         request()->session()->regenerate();
 
-        return redirect()->intended('dashboard');
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     public function failed(): RedirectResponse
