@@ -17,14 +17,15 @@ class UsersTableSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         User::factory()->create([
-             'name' => 'Sajjad',
-             'email' => 'sajjad@gmail.com',
-         ]);
+        User::factory()->create([
+            'name' => 'Sajjad',
+            'email' => 'sajjad@gmail.com',
+        ]);
 
-         User::factory()->create([
-             'name' => 'Admin',
-             'email' => 'admin@gmail.com',
-         ]);
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'role' => 'admin'
+        ]);
     }
 }
