@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Actions\PostDestroy;
 use App\Actions\PostStore;
 use App\Actions\PostUpdate;
+use App\Contracts\PostRepoInterface;
 use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
 use App\Repos\PostRepo;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -20,7 +20,7 @@ class PostController extends Controller
         $this->authorizeResource(Post::class, 'post');
     }
 
-    public function index(PostRepo $postRepo): View
+    public function index(PostRepoInterface $postRepo): View
     {
         $posts = $postRepo->getUserPosts(auth()->user()->id);
 
