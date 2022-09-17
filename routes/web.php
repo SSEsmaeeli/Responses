@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostStateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('home', [PageController::class, 'showHomePage'])->name('home');
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+    # post
     Route::resource('posts', PostController::class)->except('delete');
+    Route::patch('posts/{post}/state', [PostStateController::class, 'update'])->name('posts.state.update');
 });

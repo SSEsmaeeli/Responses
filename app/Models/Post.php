@@ -57,4 +57,16 @@ class Post extends Model
         app()->postState = $this->state;
         return PostState::getColor();
     }
+
+    public function getNextResources(): array
+    {
+        app()->postState = $this->state;
+        return PostState::getNextResources();
+    }
+
+    public function isPermittedToUpdateStateBy($state, $userRole)
+    {
+        app()->postState = $this->state;
+        return PostState::isPermittedByGivenStateAndRole($state, $userRole);
+    }
 }

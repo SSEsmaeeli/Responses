@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static getColor()
+ * @method static getNextResources()
+ * @method static isPermittedByGivenStateAndRole($state, $userRole)
  */
 class PostState extends Facade
 {
