@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property mixed $user_id
  * @property mixed $uuid
  * @property mixed $state
+ * @property mixed $title
  */
 class Post extends Model
 {

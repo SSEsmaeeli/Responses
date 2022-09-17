@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Models\Post;
 use App\Repos\PostRepo;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,7 +33,7 @@ class PostUpdate
         return $this;
     }
 
-    public function getPost(): Model
+    public function getPost(): Post
     {
         return $this->postRepo->findByUuid($this->postUuid);
     }

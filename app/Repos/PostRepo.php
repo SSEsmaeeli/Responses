@@ -22,7 +22,7 @@ class PostRepo
         return $this->post->query()->owner($userId)->get();
     }
 
-    public function findByUuid($uuid): Model|null
+    public function findByUuid($uuid): Model|null|Post
     {
         return $this->post->query()->where('uuid', $uuid)->first();
     }
