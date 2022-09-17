@@ -2,8 +2,8 @@
 
 namespace App\Facades;
 
-use App\Http\HtmlResponse\LogoutResponse as HtmlLoginResponse;
-use App\Http\JsonResponse\LogoutResponse as JsonLoginResponse;
+use App\Http\HtmlResponse\LogoutResponse as HtmlLogoutResponse;
+use App\Http\JsonResponse\LogoutResponse as JsonLogoutResponse;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -14,9 +14,9 @@ class LogoutResponse extends Facade
     protected static function getFacadeAccessor(): string
     {
         if (request()->expectsJson()) {
-            return JsonLoginResponse::class;
+            return JsonLogoutResponse::class;
         }
 
-        return HtmlLoginResponse::class;
+        return HtmlLogoutResponse::class;
     }
 }
