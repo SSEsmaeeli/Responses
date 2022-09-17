@@ -6,6 +6,7 @@ use App\Actions\PostDestroy;
 use App\Actions\PostStore;
 use App\Actions\PostUpdate;
 use App\Contracts\PostRepoInterface;
+use App\Events\PostUpdated;
 use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
@@ -54,6 +55,8 @@ class PostController extends Controller
         $postUpdate->setPostUuid($post->uuid)
             ->setData($request->validated())
             ->handle();
+
+        event(new PostUpdated($postUpdate->getPost()));
 
         return PostResponse::update($postUpdate->getPost());
     }
