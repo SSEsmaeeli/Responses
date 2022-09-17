@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Facades\PostState;
 use App\Traits\HasUUID;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property mixed $user_id
  * @property mixed $uuid
+ * @property mixed $state
+ * @property mixed $title
  */
 class Post extends Model
 {
@@ -48,5 +51,29 @@ class Post extends Model
     public function getRouteKeyName(): string
     {
         return 'uuid';
+    }
+
+    public function getStateTitle()
+    {
+        app()->postState = $this->state;
+        return PostState::getTitle();
+    }
+
+    public function getColor()
+    {
+        app()->postState = $this->state;
+        return PostState::getColor();
+    }
+
+    public function getNextResources(): array
+    {
+        app()->postState = $this->state;
+        return PostState::getNextResources();
+    }
+
+    public function isPermittedToUpdateStateBy($state, $userRole)
+    {
+        app()->postState = $this->state;
+        return PostState::isPermittedByGivenStateAndRole($state, $userRole);
     }
 }

@@ -26,5 +26,25 @@
         @method('delete')
         <button type="submit" class="btn btn-outline-danger">Delete</button>
     </form>
+    <hr>
+
+    <h2 class="text-center mb-4">Change Status of Post</h2>
+
+    <div class="d-flex justify-content-center">
+
+        <form method="post" action="{{ route('posts.state.update', $post) }}">
+            @csrf
+            @method('patch')
+            @foreach($post->getNextResources() as $next)
+                @if(in_array(auth()->user()->role, $next['roles']))
+                    <button type="submit" name="state" class="btn btn-outline-{{ $next['color'] }}"
+                            value="{{ $next['title'] }}">
+                        {{ $next['title'] }}
+                    </button>
+                @endif
+            @endforeach
+        </form>
+
+    </div>
 
 @stop

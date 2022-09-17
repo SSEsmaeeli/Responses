@@ -98,4 +98,9 @@ class PostPolicy
     {
         return false;
     }
+
+    public function stateUpdate(User $user, Post $post)
+    {
+        return $post->isOwner($user->id) && $post->isPermittedToUpdateStateBy(request()->state, $user->role);
+    }
 }

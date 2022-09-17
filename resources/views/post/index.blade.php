@@ -14,6 +14,7 @@
                     <div class="card-header">
                         <label><a href="{{ route('posts.show', $post->uuid) }}">{{ $post->title }}</a></label>
                         <label class="badge bg-primary">{{ $post->created_at->ago() }}</label>
+                        <label class="badge bg-{{ $post->getColor() }}">{{ $post->state }}</label>
                         <a href="{{ route('posts.edit', $post->uuid) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                     </div>
                     <div class="card-body">
