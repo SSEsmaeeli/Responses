@@ -24,6 +24,11 @@ class PostBaseState
         return static::COLOR;
     }
 
+    public function getNext(): array
+    {
+        return property_exists(static::class, 'next') ? static::NEXT : [];
+    }
+
     public static function getPermittedRolesValues(): array
     {
         return array_column(static::PERMITTED_ROLES, 'value');
@@ -32,7 +37,7 @@ class PostBaseState
     public function getNextResources(): array
     {
         $resources = [];
-        foreach (static::NEXT as $next) {
+        foreach ($this->getNext() as $next) {
             $resources[] = [
                 'title' => $next::TITLE,
                 'color' => $next::COLOR,
@@ -45,7 +50,7 @@ class PostBaseState
 
     public function isPermittedByGivenStateAndRole($stateTitle, $role): bool
     {
-        foreach(static::NEXT as $stateClassName) {
+        foreach($this->getNext() as $stateClassName) {
             if($stateClassName::TITLE != $stateTitle) {
                 continue;
             }
