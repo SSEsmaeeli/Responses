@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Facades\PostState;
 use App\Traits\HasUUID;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property mixed $user_id
  * @property mixed $uuid
+ * @property mixed $state
  */
 class Post extends Model
 {
@@ -48,5 +50,11 @@ class Post extends Model
     public function getRouteKeyName(): string
     {
         return 'uuid';
+    }
+
+    public function getColor()
+    {
+        app()->postState = $this->state;
+        return PostState::getColor();
     }
 }
