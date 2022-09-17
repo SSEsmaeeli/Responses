@@ -4,6 +4,8 @@ namespace App\States\Post;
 
 class PostBaseState
 {
+    const NEXT = [];
+
     public function getAllStates(): array
     {
         return [
@@ -26,7 +28,7 @@ class PostBaseState
 
     public function getNext(): array
     {
-        return property_exists(static::class, 'next') ? static::NEXT : [];
+        return static::NEXT;
     }
 
     public static function getPermittedRolesValues(): array
