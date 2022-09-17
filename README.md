@@ -1,17 +1,20 @@
+
 ### Milestones
 
-1. Auth => sanctum for api, session for web 
-2. Redis => Cache Layer => Decorator Pattern
-3. Policy 
-4. Event Listener => Observer Pattern
+1. Auth => sanctum for api, session for web ✅
+2. Redis => Cache Layer => Decorator Pattern ✅
+3. Policy ✅
+4. Event Listener => Observer Pattern ✅
 5. Job & Queue => Failed!
-6. Notification (Email Sending)
+6. Notification (Email Sending) ✅
 7. Post Like Count => Using Redis
 8. Testing
-9. Post State Pattern 
-10. Observer Pattern => clear cache & uuid
-11. Dockerized project
+9. Post State Pattern ✅
+10. Observer Pattern => clear cache & uuid ✅
+11. Dockerized project ✅
 12. A sample module(package)
+13. Postman Collection ✅
+14. Swagger API Doc
  
 
 
