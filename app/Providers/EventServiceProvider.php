@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\PostStateUpdated;
+use App\Events\PostUpdated;
+use App\Listeners\ClearCachedPost;
 use App\Listeners\SendNotificationToPostOwner;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -20,8 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        PostUpdated::class => [
+            ClearCachedPost::class
+        ],
         PostStateUpdated::class => [
-            SendNotificationToPostOwner::class
+            SendNotificationToPostOwner::class,
+            ClearCachedPost::class
         ]
     ];
 
