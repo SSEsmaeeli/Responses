@@ -37,4 +37,9 @@ class PostResponse
     {
         return redirect()->route('posts.index');
     }
+
+    public function updateState($post): RedirectResponse
+    {
+        return redirect()->route('posts.show', $post->uuid);
+    }
 }

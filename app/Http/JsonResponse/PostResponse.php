@@ -37,4 +37,11 @@ class PostResponse
             'The requested post deleted successfully.'
         );
     }
+
+    public function updateState(Post $post): JsonResponse
+    {
+        Respond::success(
+            new PostResource($post)
+        );
+    }
 }

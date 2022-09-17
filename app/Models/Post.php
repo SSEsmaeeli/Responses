@@ -52,6 +52,12 @@ class Post extends Model
         return 'uuid';
     }
 
+    public function getStateTitle()
+    {
+        app()->postState = $this->state;
+        return PostState::getTitle();
+    }
+
     public function getColor()
     {
         app()->postState = $this->state;

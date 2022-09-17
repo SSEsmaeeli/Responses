@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static update($getPost)
  * @method static show(\Illuminate\Database\Eloquent\Model|null $post)
  * @method static destroy()
+ * @method static updateState(\Illuminate\Database\Eloquent\Model $getPost)
  */
 class PostResponse extends Facade
 {
