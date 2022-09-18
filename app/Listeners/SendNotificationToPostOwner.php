@@ -8,7 +8,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SendNotificationToPostOwner implements ShouldQueue
 {
-    public $delay = 120;
     /**
      * Handle the event.
      *
