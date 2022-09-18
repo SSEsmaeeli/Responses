@@ -3,7 +3,7 @@
 namespace App\Facades;
 
 use App\States\Post\Draft;
-use App\States\Post\Pending;
+use App\States\Post\Review;
 use App\States\Post\Published;
 use App\States\Post\Rejected;
 use Illuminate\Support\Facades\Facade;
@@ -20,9 +20,10 @@ class PostState extends Facade
     {
         return match(app()->postState) {
             Draft::TITLE => Draft::class,
-            Pending::TITLE => Pending::class,
+            Review::TITLE => Review::class,
             Published::TITLE => Published::class,
             Rejected::TITLE => Rejected::class,
+            default => Respond::failed('Something went wrong! given state is not valid')
         };
     }
 }

@@ -6,11 +6,11 @@ class PostBaseState
 {
     const NEXT = [];
 
-    public function getAllStates(): array
+    public static function getAllStates(): array
     {
         return [
             Draft::TITLE,
-            Pending::TITLE,
+            Review::TITLE,
             Published::TITLE,
             Rejected::TITLE,
         ];

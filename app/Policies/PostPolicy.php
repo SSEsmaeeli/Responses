@@ -37,7 +37,11 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return true;
+        if($post->isPublished()) {
+            return true;
+        }
+
+        return $post->isOwner($user->id);
     }
 
     /**

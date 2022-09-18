@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Facades\PostState;
+use App\States\Post\Published;
 use App\Traits\HasUUID;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -75,5 +76,10 @@ class Post extends Model
     {
         app()->postState = $this->state;
         return PostState::isPermittedByGivenStateAndRole($state, $userRole);
+    }
+
+    public function isPublished(): bool
+    {
+        return $this->state === Published::TITLE;
     }
 }
