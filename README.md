@@ -15,6 +15,8 @@
 12. A sample module(package)
 13. Postman Collection ✅
 14. Swagger API Doc
+15. Larastan Checks
+16. Microscope Checks
  
 
 
