@@ -16,7 +16,7 @@ class PostBaseState
         ];
     }
 
-    public function getTITLE(): string
+    public function getTitle(): string
     {
         return static::TITLE;
     }
