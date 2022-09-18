@@ -5,8 +5,9 @@ namespace App\Listeners;
 use App\Events\PostStateUpdated;
 use App\Events\PostUpdated;
 use Illuminate\Contracts\Cache\Repository as Cache;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ClearCachedPost
+class ClearCachedPost implements ShouldQueue
 {
     /**
      * Create the event listener.

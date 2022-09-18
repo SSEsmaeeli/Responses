@@ -4,9 +4,11 @@ namespace App\Listeners;
 
 use App\Events\PostStateUpdated;
 use App\Notifications\PostStateUpdated as PostStateUpdatedNotification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendNotificationToPostOwner
+class SendNotificationToPostOwner implements ShouldQueue
 {
+    public $delay = 120;
     /**
      * Handle the event.
      *
