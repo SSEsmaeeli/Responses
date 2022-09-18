@@ -6,7 +6,7 @@ class PostBaseState
 {
     const NEXT = [];
 
-    public function getAllStates(): array
+    public static function getAllStates(): array
     {
         return [
             Draft::TITLE,
