@@ -13,7 +13,7 @@ class LoginAttempt
 
     public function handle(): RedirectResponse|JsonResponse
     {
-        if(Auth::attempt($this->credentials)) {
+        if (Auth::attempt($this->credentials)) {
             return $this->authenticated();
         }
 
@@ -23,6 +23,7 @@ class LoginAttempt
     public function setCredentials(array $credentials): static
     {
         $this->credentials = $credentials;
+
         return $this;
     }
 

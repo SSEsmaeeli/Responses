@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use App\States\Post\PostBaseState;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
 class PostStateUpdateRequest extends FormRequest
@@ -27,7 +26,7 @@ class PostStateUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'state' => ['required', 'string', Rule::in(PostBaseState::getAllStates())]
+            'state' => ['required', 'string', Rule::in(PostBaseState::getAllStates())],
         ];
     }
 }

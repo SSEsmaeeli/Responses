@@ -7,7 +7,6 @@ use App\Actions\LogoutAttempt;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {

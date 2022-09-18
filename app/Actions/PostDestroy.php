@@ -20,6 +20,7 @@ class PostDestroy
     public function setPostUuid($postUuid): static
     {
         $this->postUuid = $postUuid;
+
         return $this;
     }
 }

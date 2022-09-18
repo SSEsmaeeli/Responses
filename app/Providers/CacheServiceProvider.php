@@ -15,7 +15,7 @@ class CacheServiceProvider extends ServiceProvider
      */
     public function register()
     {
-         $this->app->bind(PostRepoInterface::class, PostCachedRepo::class);
+        $this->app->bind(PostRepoInterface::class, PostCachedRepo::class);
     }
 
     /**

@@ -4,7 +4,6 @@ namespace App\Http\JsonResponse;
 
 use App\Facades\Respond;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class LogoutResponse
 {

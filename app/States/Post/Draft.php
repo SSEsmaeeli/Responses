@@ -12,7 +12,7 @@ class Draft extends PostBaseState
 
     const NEXT = [
         Review::class,
-        Rejected::class
+        Rejected::class,
     ];
 
     const PERMITTED_ROLES = [

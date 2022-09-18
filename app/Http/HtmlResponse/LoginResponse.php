@@ -4,7 +4,6 @@ namespace App\Http\HtmlResponse;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
 class LoginResponse
 {

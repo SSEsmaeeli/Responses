@@ -11,6 +11,6 @@ class Rejected extends PostBaseState
     const COLOR = 'danger';
 
     const PERMITTED_ROLES = [
-        UserRole::ADMIN
+        UserRole::ADMIN,
     ];
 }

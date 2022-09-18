@@ -12,7 +12,7 @@ class Review extends PostBaseState
 
     const NEXT = [
         Published::class,
-        Rejected::class
+        Rejected::class,
     ];
 
     const PERMITTED_ROLES = [

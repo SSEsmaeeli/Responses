@@ -22,15 +22,15 @@ class Post extends Model
     use HasFactory, Sluggable, SoftDeletes, HasUUID;
 
     protected $fillable = [
-        'title', 'slug', 'body', 'user_id'
+        'title', 'slug', 'body', 'user_id',
     ];
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'title'
-            ]
+                'source' => 'title',
+            ],
         ];
     }
 
@@ -57,24 +57,28 @@ class Post extends Model
     public function getStateTitle()
     {
         app()->postState = $this->state;
+
         return PostState::getTitle();
     }
 
     public function getColor()
     {
         app()->postState = $this->state;
+
         return PostState::getColor();
     }
 
     public function getNextResources(): array
     {
         app()->postState = $this->state;
+
         return PostState::getNextResources();
     }
 
     public function isPermittedToUpdateStateBy($state, $userRole)
     {
         app()->postState = $this->state;
+
         return PostState::isPermittedByGivenStateAndRole($state, $userRole);
     }
 

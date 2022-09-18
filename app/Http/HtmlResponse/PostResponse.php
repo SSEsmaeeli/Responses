@@ -15,7 +15,7 @@ class PostResponse
     }
 
     /**
-     * @param Post $post
+     * @param  Post  $post
      * @return RedirectResponse
      */
     public function store(Post $post): RedirectResponse

@@ -22,8 +22,8 @@ class Post extends JsonResource
             'state_text' => $this->getStateTitle(),
             'state_color' => $this->getColor(),
             $this->mergeWhen($this->isOwner(auth()->user()->id), [
-                'created_at' => $this->created_at
-            ])
+                'created_at' => $this->created_at,
+            ]),
         ];
     }
 }

@@ -23,12 +23,12 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         PostUpdated::class => [
-            ClearCachedPost::class
+            ClearCachedPost::class,
         ],
         PostStateUpdated::class => [
             SendNotificationToPostOwner::class,
-            ClearCachedPost::class
-        ]
+            ClearCachedPost::class,
+        ],
     ];
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     protected array $seeders = [
-        UsersTableSeeder::class
+        UsersTableSeeder::class,
     ];
 
     /**

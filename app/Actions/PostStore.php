@@ -16,10 +16,11 @@ class PostStore
     public function store($data): static
     {
         $post = $this->postRepo->store($data + [
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ]);
 
         $this->post = $post->refresh();
+
         return $this;
     }
 

@@ -12,7 +12,7 @@ class PostPolicy
 
     public function before(User $user)
     {
-        if($user->isAdmin()) {
+        if ($user->isAdmin()) {
             return true;
         }
     }
@@ -37,7 +37,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        if($post->isPublished()) {
+        if ($post->isPublished()) {
             return true;
         }
 

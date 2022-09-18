@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Events\PostStateUpdated;
 use App\Notifications\PostStateUpdated as PostStateUpdatedNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class SendNotificationToPostOwner
 {

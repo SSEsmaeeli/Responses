@@ -2,11 +2,9 @@
 
 namespace App\Listeners;
 
+use App\Events\PostStateUpdated;
 use App\Events\PostUpdated;
 use Illuminate\Contracts\Cache\Repository as Cache;
-use App\Events\PostStateUpdated;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class ClearCachedPost
 {
@@ -28,7 +26,7 @@ class ClearCachedPost
      */
     public function handle(PostStateUpdated|PostUpdated $event)
     {
-        $this->cache->forget('post:'. $event->post->uuid);
-        $this->cache->forget('user:'. $event->post->user_id.'_posts');
+        $this->cache->forget('post:'.$event->post->uuid);
+        $this->cache->forget('user:'.$event->post->user_id.'_posts');
     }
 }

@@ -21,12 +21,12 @@ Route::post('login', [LoginController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) { // @TODO add controller and api resource
-        return $request->user();
+    return $request->user();
     });
 
     Route::post('logout', [LoginController::class, 'logout']);
 
-    # posts
+    // posts
     Route::apiResource('posts', PostController::class);
     Route::patch('posts/{post}/state', [PostStateController::class, 'update']);
 });

@@ -11,7 +11,6 @@ use App\Facades\PostResponse;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
-use App\Repos\PostRepo;
 use Illuminate\Contracts\View\View;
 
 class PostController extends Controller

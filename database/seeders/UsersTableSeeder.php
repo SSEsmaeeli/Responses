@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\UserRole;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -28,7 +27,7 @@ class UsersTableSeeder extends Seeder
             'name' => config('sample_user.admin.name'),
             'email' => config('sample_user.admin.email'),
             'password' => bcrypt(config('sample_user.admin.password')),
-            'role' => UserRole::ADMIN->value
+            'role' => UserRole::ADMIN->value,
         ]);
     }
 }

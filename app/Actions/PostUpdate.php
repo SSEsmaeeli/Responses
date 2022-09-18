@@ -4,7 +4,6 @@ namespace App\Actions;
 
 use App\Models\Post;
 use App\Repos\PostRepo;
-use Illuminate\Database\Eloquent\Model;
 
 class PostUpdate
 {
@@ -24,12 +23,14 @@ class PostUpdate
     public function setPostUuid(string $postUuid): static
     {
         $this->postUuid = $postUuid;
+
         return $this;
     }
 
     public function setData(array $data): static
     {
         $this->data = $data;
+
         return $this;
     }
 

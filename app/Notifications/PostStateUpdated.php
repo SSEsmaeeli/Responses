@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -44,7 +43,7 @@ class PostStateUpdated extends Notification
                     ->subject('Your post status ('.$this->post->title.') is updated')
                     ->greeting('Hello')
                     ->line('Please take a moment to check if everything is true.')
-                    ->line('FYI, your post new state is '. $this->post->state. '.')
+                    ->line('FYI, your post new state is '.$this->post->state.'.')
                     ->action('See Your Post', route('posts.show', $this->post->uuid))
                     ->line('Thank you for using our application!');
     }

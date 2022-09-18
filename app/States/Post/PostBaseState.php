@@ -43,7 +43,7 @@ class PostBaseState
             $resources[] = [
                 'title' => $next::TITLE,
                 'color' => $next::COLOR,
-                'roles' => array_column($next::PERMITTED_ROLES, 'value')
+                'roles' => array_column($next::PERMITTED_ROLES, 'value'),
             ];
         }
 
@@ -52,12 +52,12 @@ class PostBaseState
 
     public function isPermittedByGivenStateAndRole($stateTitle, $role): bool
     {
-        foreach($this->getNext() as $stateClassName) {
-            if($stateClassName::TITLE != $stateTitle) {
+        foreach ($this->getNext() as $stateClassName) {
+            if ($stateClassName::TITLE != $stateTitle) {
                 continue;
             }
 
-            if(in_array($role, $stateClassName::getPermittedRolesValues())) {
+            if (in_array($role, $stateClassName::getPermittedRolesValues())) {
                 return true;
             }
         }
