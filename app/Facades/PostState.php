@@ -23,6 +23,7 @@ class PostState extends Facade
             Review::TITLE => Review::class,
             Published::TITLE => Published::class,
             Rejected::TITLE => Rejected::class,
+            default => Respond::failed('Something went wrong! given state is not valid')
         };
     }
 }
