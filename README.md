@@ -1,4 +1,6 @@
 
+Demo: [Click to see the demo here](https://blog.ssesmaeeli.ir)
+
 ### Milestones
 
 1. Auth => sanctum for api, session for web ✅
@@ -17,8 +19,8 @@
 14. Swagger API Doc
 15. Larastan Checks
 16. Microscope Checks
- 
-
+17. Live the project on a production server  ✅
+18. Add Registration
 
 ### Stories
 1. Auth => sanctum for api, session for web 
