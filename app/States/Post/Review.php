@@ -4,9 +4,9 @@ namespace App\States\Post;
 
 use App\Enums\UserRole;
 
-class Pending extends PostBaseState
+class Review extends PostBaseState
 {
-    const TITLE = 'pending';
+    const TITLE = 'review';
 
     const COLOR = 'warning';
 

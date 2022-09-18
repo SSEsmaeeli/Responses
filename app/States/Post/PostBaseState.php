@@ -10,7 +10,7 @@ class PostBaseState
     {
         return [
             Draft::TITLE,
-            Pending::TITLE,
+            Review::TITLE,
             Published::TITLE,
             Rejected::TITLE,
         ];

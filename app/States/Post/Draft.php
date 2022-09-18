@@ -11,7 +11,7 @@ class Draft extends PostBaseState
     const COLOR = 'primary';
 
     const NEXT = [
-        Pending::class,
+        Review::class,
         Rejected::class
     ];
 

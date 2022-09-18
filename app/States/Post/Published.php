@@ -11,7 +11,7 @@ class Published extends PostBaseState
     const COLOR = 'success';
 
     const NEXT = [
-        Pending::class,
+        Review::class,
         Rejected::class
     ];
 
